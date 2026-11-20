@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-cream: #FFF7ED;
+  --color-chocolate: #2B1A12;
+  --color-caramel: #C68B3C;
+  --color-gold: #D4A853;
+  --color-blush: #F5E1D3;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #FFF7ED;
+    color: #2B1A12;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+  }
+}
+
+@keyframes jb-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes jb-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-jb-float {
+  animation: jb-float 5.5s ease-in-out infinite;
+}
+
+.animate-jb-marquee {
+  display: flex;
+  width: max-content;
+  animation: jb-marquee 32s linear infinite;
+}
+
+.animate-jb-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-jb-float,
+  .animate-jb-marquee {
+    animation: none;
+  }
+}
